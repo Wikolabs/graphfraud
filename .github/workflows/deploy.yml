@@ -1,8 +1,9 @@
-name: Deploy graphfraud
+﻿name: Deploy graphfraud
 
 on:
   push:
     branches: [main]
+  workflow_dispatch:
 
 jobs:
   build-and-deploy:
@@ -35,3 +36,4 @@ jobs:
           chmod 600 ~/.ssh/deploy_key
           ssh-keyscan -H "$VM_HOST" >> ~/.ssh/known_hosts 2>/dev/null
           ssh -i ~/.ssh/deploy_key -o StrictHostKeyChecking=no "$VM_USER@$VM_HOST" "echo '$GHCR_TOKEN' | docker login ghcr.io -u '$GHCR_USER' --password-stdin && docker pull ghcr.io/wikolabs/graphfraud:latest && (docker stop graphfraud 2>/dev/null; docker rm graphfraud 2>/dev/null; true) && docker run -d --name graphfraud -p 3044:3000 --restart unless-stopped ghcr.io/wikolabs/graphfraud:latest && echo 'Deployed graphfraud on port 3044'"
+
