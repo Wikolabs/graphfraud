@@ -1,110 +1,107 @@
-﻿export default function Home() {
+﻿"use client";
+const P = {
+  name: "GraphFraud",
+  tagLabel: "Fraude en reseau · Graphes IA · Detection coordonnee",
+  taglines: ["Des fraudeurs qui se coordonnent.", "Des reseaux invisibles a l'oeil nu.", "Detectes par l'analyse de graphes."],
+  taglineAccentIdx: 1,
+  desc: "GraphFraud analyse les connexions entre comptes, appareils et transactions pour detecter les anneaux de fraude organises — ces reseaux coordonnes que les methodes traditionnelles ne voient jamais.",
+  accent: "#F87171",
+  accentDim: "rgba(248,113,113,0.1)",
+  accentBorder: "rgba(248,113,113,0.25)",
+  accentGlow: "rgba(248,113,113,0.08)",
+  waText: "GraphFraud",
+  navLinks: [{ label: "Fonctionnalites", href: "#features" }, { label: "Comment ca marche", href: "#process" }, { label: "Contact", href: "#cta" }],
+  metrics: [{ value: "300x", label: "plus de connexions analysees" }, { value: "96%", label: "detection de reseaux" }, { value: "10M+", label: "noeuds analyses" }, { value: "Temps reel", label: "mise a jour du graphe" }],
+  features: [
+    { icon: "🕸️", title: "Analyse de graphes relationels", desc: "GraphFraud construit un graphe de relations entre comptes, IPs, appareils, adresses et transactions. Les reseaux de fraude emergent naturellement des connexions." },
+    { icon: "🔴", title: "Detection de communautes suspectes", desc: "Algorithmes de clustering avances pour identifier les groupes de comptes qui agissent de concert — memes patterns de comportement, connexions communes, coordinations temporelles." },
+    { icon: "📡", title: "Propagation de risque en temps reel", desc: "Quand un compte est marque comme frauduleux, le risque se propage instantanement a tous les comptes connectes. Alertes en cascade pour les comptes lies." },
+  ],
+  steps: [
+    { num: "01", title: "Modelisez vos entites et relations", desc: "Definissez les noeuds (comptes, appareils, IPs) et les liens (transactions, connexions, adresses partagees). GraphFraud ingere votre modele de donnees existant." },
+    { num: "02", title: "Le graphe se construit en continu", desc: "Chaque nouvelle transaction enrichit le graphe. Les connexions se dessinent, les clusters se forment, les anomalies de reseau sont detectees automatiquement." },
+    { num: "03", title: "Alertes et visualisation des reseaux", desc: "Dashboard de visualisation interactive. Alertes sur les communautes suspectes. Export des reseaux detectes pour investigation approfondie." },
+  ],
+  testimonials: [
+    { quote: "Les methodes classiques detectaient les fraudes individuelles. GraphFraud a revele un anneau de 47 comptes coordonnes que nous n'aurions jamais vu.", author: "Pierre M.", role: "Directeur Fraude, Banque Madagascar" },
+    { quote: "Apres l'integration de GraphFraud, on a identifie que 23% de nos pertes venaient de 3 reseaux coordonnes. Tous bloques en moins de 24h.", author: "Lova T.", role: "Head of Risk, Fintech" },
+  ],
+  ctaTitle: "Voyez les fraudes que vos outils actuels manquent",
+  ctaDesc: "Demo en 30 minutes. Analyse de votre graphe de transactions en 48h. ROI evident des la premiere detection.",
+  ctaPrimary: "Reserver une demo",
+  footerTagline: "Detection de reseaux de fraude par analyse de graphes IA",
+};
+export default function Page() {
+  const bg = "#04080F"; const bg2 = "#070D1B"; const card = "rgba(255,255,255,0.04)"; const border = "rgba(255,255,255,0.09)";
+  const gold = "#D4AF37"; const goldDim = "rgba(212,175,55,0.1)"; const goldBorder = "rgba(212,175,55,0.28)";
+  const txt1 = "#F0EDE6"; const txt2 = "#8B9DB5"; const txt3 = "#3C5068";
+  const { accent, accentDim, accentBorder, accentGlow } = P;
   return (
-    <main style={{ fontFamily: "var(--font-body)" }}>
-      {/* NAVBAR */}
-      <nav style={{ background: "#fff", borderBottom: "1px solid #ffe4e6", padding: "0 2rem", display: "flex", alignItems: "center", justifyContent: "space-between", height: "64px", position: "sticky", top: 0, zIndex: 50 }}>
-        <span style={{ fontFamily: "var(--font-display)", fontWeight: 700, fontSize: "1.25rem", color: "#f43f5e" }}>GraphFraud</span>
-        <div style={{ display: "flex", gap: "1.5rem", alignItems: "center" }}>
-          <a href="#features" style={{ color: "#64748b", textDecoration: "none", fontSize: "0.9rem" }}>Fonctionnalités</a>
-          <a href="#how" style={{ color: "#64748b", textDecoration: "none", fontSize: "0.9rem" }}>Comment ça marche</a>
-          <button data-cal-link="wikolabs-team/30min" data-cal-namespace="wk30min" data-cal-config='{"layout":"month_view"}' type="button" target="_blank" rel="noopener noreferrer" style={{ background: "#f43f5e", color: "#fff", padding: "0.5rem 1.25rem", borderRadius: "8px", textDecoration: "none", fontSize: "0.9rem", fontWeight: 600 }}>Démo gratuite</button>
+    <div style={{ minHeight:"100vh", background:bg, color:txt1 }}>
+      <style>{`*, *::before, *::after { box-sizing: border-box; } html { scroll-behavior: smooth; } body { -webkit-font-smoothing: antialiased; overflow-x: hidden; } @keyframes fadeUp { from { opacity:0; transform:translateY(24px); } to { opacity:1; transform:translateY(0); } } @keyframes pulseDot { 0%,100%{ opacity:1; transform:scale(1); } 50%{ opacity:.4; transform:scale(1.6); } } .wk-card { transition: background .3s, border-color .3s, transform .35s cubic-bezier(.34,1.2,.64,1); } .wk-card:hover { background: rgba(255,255,255,0.07) !important; border-color: ${accentBorder} !important; transform: translateY(-6px) !important; } .wk-btn { transition: opacity .2s, transform .2s, box-shadow .2s; } .wk-btn:hover { opacity:.9; transform:translateY(-2px); box-shadow:0 12px 32px rgba(212,175,55,.18); } .wk-wa { transition: opacity .2s, transform .2s; } .wk-wa:hover { opacity:.9; transform:translateY(-2px); } .wk-nav-link { color: #8B9DB5; text-decoration:none; font-size:14px; font-weight:500; transition:color .2s; } .wk-nav-link:hover { color: #F0EDE6; } @media(max-width:640px){ .wk-hide-sm{ display:none!important; } .wk-hero-title{ font-size:2.4rem!important; } }`}</style>
+      <nav style={{ position:"sticky", top:0, zIndex:100, background:"rgba(4,8,15,0.82)", backdropFilter:"blur(20px)", borderBottom:`1px solid ${border}`, padding:"0 40px", height:60, display:"flex", alignItems:"center", justifyContent:"space-between" }}>
+        <span style={{ fontSize:18, fontWeight:800, letterSpacing:"-0.5px", color:txt1 }}>{P.name}<span style={{ color:gold }}>.</span></span>
+        <div style={{ display:"flex", gap:28, alignItems:"center" }}>
+          <div className="wk-hide-sm" style={{ display:"flex", gap:24 }}>{P.navLinks.map(l => <a key={l.label} href={l.href} className="wk-nav-link">{l.label}</a>)}</div>
+          <button data-cal-link="wikolabs-team/30min" data-cal-namespace="wk30min" data-cal-config='{"layout":"month_view"}' className="wk-btn" style={{ background:gold, color:"#04080F", border:"none", borderRadius:8, padding:"8px 18px", fontWeight:700, fontSize:13.5, cursor:"pointer", fontFamily:"inherit" }}>Reserver →</button>
         </div>
       </nav>
-
-      {/* HERO */}
-      <section style={{ background: "linear-gradient(135deg, #fff1f2 0%, #ffe4e6 100%)", padding: "5rem 2rem 4rem", textAlign: "center" }}>
-        <span style={{ display: "inline-block", background: "#f43f5e", color: "#fff", borderRadius: "999px", padding: "0.4rem 1.2rem", fontSize: "0.8rem", fontWeight: 600, marginBottom: "1.5rem", letterSpacing: "0.05em" }}>Graph Neural Network · Fraude réseau</span>
-        <h1 style={{ fontFamily: "var(--font-display)", fontSize: "clamp(2rem, 5vw, 3.5rem)", fontWeight: 800, lineHeight: 1.15, color: "#0f172a", marginBottom: "1.5rem", maxWidth: "800px", margin: "0 auto 1.5rem" }}>
-          La fraude organisée<br /><span style={{ color: "#f43f5e" }}>ne se cache plus dans votre graphe.</span>
+      <section style={{ padding:"100px 40px 80px", maxWidth:1000, margin:"0 auto", textAlign:"center", position:"relative" }}>
+        <div style={{ position:"absolute", top:-60, left:"50%", transform:"translateX(-50%)", width:700, height:600, background:`radial-gradient(ellipse at 50% 30%, ${accentGlow} 0%, transparent 60%)`, pointerEvents:"none" }} />
+        <div style={{ display:"inline-flex", alignItems:"center", gap:8, marginBottom:24, background:accentDim, border:`1px solid ${accentBorder}`, borderRadius:100, padding:"6px 18px", animation:"fadeUp .5s ease both" }}>
+          <span style={{ width:7, height:7, borderRadius:"50%", background:accent, display:"inline-block", animation:"pulseDot 2s ease-in-out infinite" }} />
+          <span style={{ color:accent, fontSize:11.5, fontWeight:700, letterSpacing:"2px", textTransform:"uppercase" }}>{P.tagLabel}</span>
+        </div>
+        <h1 className="wk-hero-title" style={{ fontSize:"clamp(2.6rem,6vw,5rem)", fontWeight:700, lineHeight:1.08, letterSpacing:"-0.03em", marginBottom:28, fontFamily:"'Instrument Serif',Georgia,serif", animation:"fadeUp .5s .08s ease both" }}>
+          {P.taglines.map((line, i) => (<span key={i} style={{ display:"block", color:i===P.taglineAccentIdx?accent:txt1, fontStyle:i===P.taglineAccentIdx?"italic":"normal" }}>{line}</span>))}
         </h1>
-        <p style={{ color: "#475569", fontSize: "1.15rem", maxWidth: "560px", margin: "0 auto 2.5rem", lineHeight: 1.7 }}>
-          Analyse de graphes transactionnels GNN — détection de communautés frauduleuses et d&apos;anneaux de fraude organisée.
-        </p>
-        <div style={{ display: "flex", gap: "1rem", justifyContent: "center", flexWrap: "wrap", marginBottom: "3.5rem" }}>
-          <button data-cal-link="wikolabs-team/30min" data-cal-namespace="wk30min" data-cal-config='{"layout":"month_view"}' type="button" target="_blank" rel="noopener noreferrer" style={{ background: "#f43f5e", color: "#fff", padding: "0.85rem 2rem", borderRadius: "10px", textDecoration: "none", fontWeight: 700, fontSize: "1rem" }}>Demander une démo</button>
-          <a href="https://wa.me/261386626100?text=Bonjour%2C%20je%20souhaite%20discuter%20de%20GraphFraud%20avec%20Wikolabs." target="_blank" rel="noopener noreferrer" style={{ background: "#25d366", color: "#fff", padding: "0.85rem 2rem", borderRadius: "10px", textDecoration: "none", fontWeight: 700, fontSize: "1rem" }}>WhatsApp</a>
+        <p style={{ fontSize:"1.1rem", color:txt2, lineHeight:1.72, maxWidth:580, margin:"0 auto 48px", animation:"fadeUp .5s .16s ease both" }}>{P.desc}</p>
+        <div style={{ display:"flex", flexWrap:"wrap", justifyContent:"center", gap:14, marginBottom:44, animation:"fadeUp .5s .24s ease both" }}>
+          {P.metrics.map(m => (<div key={m.label} style={{ background:card, border:`1px solid ${border}`, borderRadius:18, padding:"14px 22px", textAlign:"center", minWidth:118 }}><div style={{ fontSize:"1.7rem", fontWeight:800, color:txt1, letterSpacing:"-1.5px", lineHeight:1 }}>{m.value}</div><div style={{ fontSize:"0.62rem", color:txt3, textTransform:"uppercase", letterSpacing:"1.5px", marginTop:5 }}>{m.label}</div></div>))}
         </div>
-        <div style={{ display: "flex", gap: "2rem", justifyContent: "center", flexWrap: "wrap" }}>
-          {[{ value: "+95%", label: "détection réseau" }, { value: "<1s", label: "analyse graphe" }, { value: "GNN", label: "propriétaire" }, { value: "Temps réel", label: "traitement" }].map((m) => (
-            <div key={m.label} style={{ textAlign: "center" }}>
-              <div style={{ fontFamily: "var(--font-display)", fontSize: "2rem", fontWeight: 800, color: "#f43f5e" }}>{m.value}</div>
-              <div style={{ color: "#64748b", fontSize: "0.85rem", marginTop: "0.25rem" }}>{m.label}</div>
-            </div>
-          ))}
+        <div style={{ display:"flex", flexWrap:"wrap", gap:12, justifyContent:"center", animation:"fadeUp .5s .32s ease both" }}>
+          <button data-cal-link="wikolabs-team/30min" data-cal-namespace="wk30min" data-cal-config='{"layout":"month_view"}' className="wk-btn" style={{ background:gold, color:"#04080F", border:"none", borderRadius:10, padding:"14px 28px", fontWeight:700, fontSize:15, cursor:"pointer", display:"flex", alignItems:"center", gap:8, fontFamily:"inherit" }}>📅 {P.ctaPrimary}</button>
+          <a href={`https://wa.me/261386626100?text=Bonjour%2C%20je%20souhaite%20discuter%20de%20${encodeURIComponent(P.waText)}%20avec%20Wikolabs.`} target="_blank" rel="noopener noreferrer" className="wk-wa" style={{ background:"#25d366", color:"#fff", borderRadius:10, padding:"14px 28px", fontWeight:700, fontSize:15, textDecoration:"none", display:"flex", alignItems:"center", gap:8 }}>💬 WhatsApp</a>
         </div>
       </section>
-
-      {/* FEATURES */}
-      <section id="features" style={{ padding: "5rem 2rem", background: "#fff" }}>
-        <div style={{ maxWidth: "1100px", margin: "0 auto" }}>
-          <h2 style={{ fontFamily: "var(--font-display)", fontSize: "2rem", fontWeight: 800, color: "#0f172a", textAlign: "center", marginBottom: "0.75rem" }}>Ce que GraphFraud détecte</h2>
-          <p style={{ color: "#64748b", textAlign: "center", marginBottom: "3rem", fontSize: "1rem" }}>Des patterns de fraude organisée invisibles aux systèmes classiques.</p>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(300px, 1fr))", gap: "1.5rem" }}>
-            {[
-              { icon: "🕸️", title: "Analyse de graphe transactionnel", desc: "Chaque transaction crée un lien dans le graphe. Les patterns de fraude organisée — mules, rings, burst fraud — sont détectés par leur topologie." },
-              { icon: "👥", title: "Détection de communautés", desc: "Les algorithmes de clustering identifient les groupes d'entités qui collaborent pour frauder, même sans transaction directe entre elles." },
-              { icon: "📊", title: "Scoring de réseau", desc: "Chaque nœud reçoit un score basé sur son voisinage : un compte légitime lié à plusieurs fraudeurs voit son risque augmenter automatiquement." },
-            ].map((f) => (
-              <div key={f.title} style={{ background: "#fff1f2", borderRadius: "16px", padding: "2rem", border: "1px solid #ffe4e6" }}>
-                <div style={{ fontSize: "2rem", marginBottom: "1rem" }}>{f.icon}</div>
-                <h3 style={{ fontFamily: "var(--font-display)", fontWeight: 700, fontSize: "1.1rem", color: "#0f172a", marginBottom: "0.75rem" }}>{f.title}</h3>
-                <p style={{ color: "#475569", lineHeight: 1.7, fontSize: "0.95rem" }}>{f.desc}</p>
-              </div>
-            ))}
+      <section id="features" style={{ padding:"80px 40px", maxWidth:1100, margin:"0 auto" }}>
+        <div style={{ textAlign:"center", marginBottom:52 }}><p style={{ fontSize:"0.68rem", color:gold, letterSpacing:"3px", textTransform:"uppercase", fontWeight:700, marginBottom:14 }}>Fonctionnalites</p><h2 style={{ fontSize:"clamp(1.8rem,3.5vw,2.8rem)", fontWeight:700, color:txt1, letterSpacing:"-0.02em", fontFamily:"'Instrument Serif',Georgia,serif", lineHeight:1.15 }}>Voir l'invisible, <em style={{ fontStyle:"italic", color:gold }}>agir vite</em></h2></div>
+        <div style={{ display:"grid", gridTemplateColumns:"repeat(auto-fill,minmax(300px,1fr))", gap:20 }}>
+          {P.features.map((f, i) => (<div key={f.title} className="wk-card" style={{ background:card, border:`1px solid ${border}`, borderRadius:20, padding:"28px 28px 24px", position:"relative", overflow:"hidden" }}><div style={{ position:"absolute", top:0, left:0, right:0, height:2, background:`linear-gradient(90deg,transparent,${i===0?gold:accent},transparent)`, opacity:.6 }} /><div style={{ fontSize:"2rem", marginBottom:16 }}>{f.icon}</div><h3 style={{ fontSize:"1.05rem", fontWeight:700, color:txt1, marginBottom:10 }}>{f.title}</h3><p style={{ fontSize:"0.88rem", color:txt2, lineHeight:1.7, margin:0 }}>{f.desc}</p></div>))}
+        </div>
+      </section>
+      <section id="process" style={{ padding:"80px 40px", background:bg2 }}>
+        <div style={{ maxWidth:860, margin:"0 auto" }}>
+          <div style={{ textAlign:"center", marginBottom:48 }}><p style={{ fontSize:"0.68rem", color:gold, letterSpacing:"3px", textTransform:"uppercase", fontWeight:700, marginBottom:14 }}>Comment ca marche</p><h2 style={{ fontSize:"clamp(1.8rem,3.5vw,2.8rem)", fontWeight:700, color:txt1, letterSpacing:"-0.02em", fontFamily:"'Instrument Serif',Georgia,serif" }}>Graphe actif en <em style={{ fontStyle:"italic", color:accent }}>48 heures</em></h2></div>
+          <div style={{ display:"flex", flexDirection:"column", gap:14 }}>
+            {P.steps.map((s, i) => (<div key={s.num} style={{ display:"flex", alignItems:"flex-start", gap:22, background:card, border:`1px solid ${border}`, borderRadius:18, padding:"22px 26px" }}><div style={{ flexShrink:0, width:46, height:46, background:i===0?goldDim:accentDim, border:`1px solid ${i===0?goldBorder:accentBorder}`, borderRadius:14, display:"flex", alignItems:"center", justifyContent:"center", color:i===0?gold:accent, fontWeight:800, fontSize:15 }}>{s.num}</div><div><h3 style={{ fontSize:"1rem", fontWeight:700, color:txt1, marginBottom:6, lineHeight:1.3 }}>{s.title}</h3><p style={{ fontSize:"0.87rem", color:txt2, lineHeight:1.7, margin:0 }}>{s.desc}</p></div></div>))}
           </div>
         </div>
       </section>
-
-      {/* HOW IT WORKS */}
-      <section id="how" style={{ padding: "5rem 2rem", background: "#fff1f2" }}>
-        <div style={{ maxWidth: "900px", margin: "0 auto" }}>
-          <h2 style={{ fontFamily: "var(--font-display)", fontSize: "2rem", fontWeight: 800, color: "#0f172a", textAlign: "center", marginBottom: "0.75rem" }}>Comment ça marche</h2>
-          <p style={{ color: "#64748b", textAlign: "center", marginBottom: "3rem", fontSize: "1rem" }}>Intégration en 3 étapes, résultats dès la première semaine.</p>
-          <div style={{ display: "flex", flexDirection: "column", gap: "2rem" }}>
-            {[
-              { step: "01", title: "Ingestion des transactions", desc: "Feed en temps réel via Kafka/Kinesis ou batch quotidien. Chaque transaction devient un arc dans le graphe de relations." },
-              { step: "02", title: "Construction et analyse du graphe", desc: "Le GNN s'entraîne sur vos données historiques et met à jour les scores en continu à chaque nouvelle transaction." },
-              { step: "03", title: "Détection et alertes", desc: "Les communautés suspectes et les nœuds à risque élevé déclenchent des alertes avec visualisation du graphe causal pour l'équipe fraude." },
-            ].map((s) => (
-              <div key={s.step} style={{ display: "flex", gap: "1.5rem", alignItems: "flex-start", background: "#fff", borderRadius: "16px", padding: "1.75rem", border: "1px solid #ffe4e6" }}>
-                <span style={{ fontFamily: "var(--font-display)", fontSize: "2rem", fontWeight: 800, color: "#f43f5e", minWidth: "3rem" }}>{s.step}</span>
-                <div>
-                  <h3 style={{ fontFamily: "var(--font-display)", fontWeight: 700, fontSize: "1.1rem", color: "#0f172a", marginBottom: "0.5rem" }}>{s.title}</h3>
-                  <p style={{ color: "#475569", lineHeight: 1.7, fontSize: "0.95rem" }}>{s.desc}</p>
-                </div>
-              </div>
-            ))}
+      <section style={{ padding:"80px 40px", maxWidth:900, margin:"0 auto" }}>
+        <div style={{ textAlign:"center", marginBottom:44 }}><p style={{ fontSize:"0.68rem", color:gold, letterSpacing:"3px", textTransform:"uppercase", fontWeight:700, marginBottom:14 }}>Temoignages</p><h2 style={{ fontSize:"clamp(1.6rem,3vw,2.4rem)", fontWeight:700, color:txt1, fontFamily:"'Instrument Serif',Georgia,serif" }}>Ce qu'en disent nos clients</h2></div>
+        <div style={{ display:"grid", gridTemplateColumns:"repeat(auto-fill,minmax(340px,1fr))", gap:20 }}>
+          {P.testimonials.map((t, i) => (<div key={i} style={{ background:card, border:`1px solid ${border}`, borderLeft:`3px solid ${i===0?gold:accent}`, borderRadius:20, padding:"26px 26px 22px" }}><p style={{ fontSize:"0.92rem", color:txt2, lineHeight:1.75, fontStyle:"italic", marginBottom:20 }}>&ldquo;{t.quote}&rdquo;</p><div style={{ display:"flex", alignItems:"center", gap:12 }}><div style={{ width:38, height:38, borderRadius:"50%", background:i===0?goldDim:accentDim, border:`1px solid ${i===0?goldBorder:accentBorder}`, display:"flex", alignItems:"center", justifyContent:"center", fontSize:16 }}>👤</div><div><div style={{ fontSize:"0.9rem", fontWeight:700, color:txt1 }}>{t.author}</div><div style={{ fontSize:"0.72rem", color:txt3 }}>{t.role}</div></div></div></div>))}
+        </div>
+      </section>
+      <section id="cta" style={{ padding:"0 40px 100px", maxWidth:860, margin:"0 auto" }}>
+        <div style={{ background:card, border:`1px solid ${goldBorder}`, borderRadius:24, padding:"64px 48px", textAlign:"center", backgroundImage:`radial-gradient(ellipse at 50% 0%, ${goldDim} 0%, transparent 65%)` }}>
+          <p style={{ fontSize:"0.68rem", color:gold, letterSpacing:"3px", textTransform:"uppercase", fontWeight:700, marginBottom:16 }}>Demarrer</p>
+          <h2 style={{ fontSize:"clamp(1.8rem,3.5vw,2.8rem)", fontWeight:700, color:txt1, marginBottom:14, letterSpacing:"-0.02em", fontFamily:"'Instrument Serif',Georgia,serif" }}>{P.ctaTitle}</h2>
+          <p style={{ color:txt2, fontSize:"1rem", marginBottom:36, lineHeight:1.7 }}>{P.ctaDesc}</p>
+          <div style={{ display:"flex", flexWrap:"wrap", gap:12, justifyContent:"center" }}>
+            <button data-cal-link="wikolabs-team/30min" data-cal-namespace="wk30min" data-cal-config='{"layout":"month_view"}' className="wk-btn" style={{ background:gold, color:"#04080F", border:"none", borderRadius:10, padding:"14px 28px", fontWeight:700, fontSize:15, cursor:"pointer", display:"flex", alignItems:"center", gap:8, fontFamily:"inherit" }}>📅 {P.ctaPrimary}</button>
+            <a href={`https://wa.me/261386626100?text=Bonjour%2C%20je%20souhaite%20discuter%20de%20${encodeURIComponent(P.waText)}%20avec%20Wikolabs.`} target="_blank" rel="noopener noreferrer" className="wk-wa" style={{ background:"#25d366", color:"#fff", borderRadius:10, padding:"14px 28px", fontWeight:700, fontSize:15, textDecoration:"none", display:"flex", alignItems:"center", gap:8 }}>💬 WhatsApp</a>
           </div>
         </div>
       </section>
-
-      {/* CTA */}
-      <section style={{ padding: "5rem 2rem", background: "#f43f5e", textAlign: "center" }}>
-        <h2 style={{ fontFamily: "var(--font-display)", fontSize: "2.25rem", fontWeight: 800, color: "#fff", marginBottom: "1rem" }}>Exposez les réseaux frauduleux dès aujourd&apos;hui</h2>
-        <p style={{ color: "#ffe4e6", fontSize: "1.1rem", marginBottom: "2rem" }}>Analyse pilote sur vos 3 derniers mois de transactions.</p>
-        <div style={{ display: "flex", gap: "1rem", justifyContent: "center", flexWrap: "wrap" }}>
-          <button data-cal-link="wikolabs-team/30min" data-cal-namespace="wk30min" data-cal-config='{"layout":"month_view"}' type="button" target="_blank" rel="noopener noreferrer" style={{ background: "#fff", color: "#f43f5e", padding: "0.9rem 2.25rem", borderRadius: "10px", textDecoration: "none", fontWeight: 700, fontSize: "1rem" }}>Planifier une démo</button>
-          <a href="https://wa.me/261386626100?text=Bonjour%2C%20je%20souhaite%20discuter%20de%20GraphFraud%20avec%20Wikolabs." target="_blank" rel="noopener noreferrer" style={{ background: "#25d366", color: "#fff", padding: "0.9rem 2.25rem", borderRadius: "10px", textDecoration: "none", fontWeight: 700, fontSize: "1rem" }}>WhatsApp</a>
+      <footer style={{ borderTop:`1px solid ${border}`, padding:"32px 40px" }}>
+        <div style={{ maxWidth:1200, margin:"0 auto", display:"flex", flexWrap:"wrap", justifyContent:"space-between", alignItems:"center", gap:16 }}>
+          <div><span style={{ fontWeight:800, fontSize:16, color:txt1 }}>{P.name}</span><span style={{ color:gold }}>.</span><span style={{ display:"block", fontSize:12, color:txt3, marginTop:3 }}>{P.footerTagline}</span></div>
+          <p style={{ fontSize:13, color:txt3 }}>© 2026 {P.name} — Un produit <a href="https://wikolabs.com" style={{ color:txt2, textDecoration:"none" }}>Wikolabs</a></p>
+          <div style={{ display:"flex", flexWrap:"wrap", gap:16, fontSize:13, alignItems:"center" }}><a href="mailto:team@wikolabs.com" style={{ color:txt3, textDecoration:"none" }}>team@wikolabs.com</a><span style={{ color:txt3 }}>·</span><button data-cal-link="wikolabs-team/30min" data-cal-namespace="wk30min" data-cal-config='{"layout":"month_view"}' style={{ background:"none", border:"none", color:txt3, fontSize:13, cursor:"pointer", fontFamily:"inherit", padding:0 }}>Prendre RDV</button></div>
         </div>
-      </section>
-
-      {/* FOOTER */}
-      <footer style={{ background: "#0f172a", color: "#94a3b8", padding: "2.5rem 2rem", textAlign: "center" }}>
-        <div style={{ fontFamily: "var(--font-display)", fontWeight: 700, fontSize: "1.1rem", color: "#fff", marginBottom: "0.5rem" }}>GraphFraud by Wikolabs</div>
-        <div style={{ fontSize: "0.9rem", marginBottom: "0.5rem" }}>
-          <a href="mailto:team@wikolabs.com" style={{ color: "#94a3b8", textDecoration: "none" }}>team@wikolabs.com</a>
-          {" · "}
-          <a href="https://wikolabs.com" target="_blank" rel="noopener noreferrer" style={{ color: "#94a3b8", textDecoration: "none" }}>wikolabs.com</a>
-        </div>
-        <div style={{ fontSize: "0.8rem", color: "#94a3b8", marginBottom: "0.5rem", display: "flex", gap: 16, justifyContent: "center", flexWrap: "wrap" }}>
-          <a href="mailto:team@wikolabs.com" style={{ color: "#94a3b8", textDecoration: "none" }}>team@wikolabs.com</a>
-          <span>·</span>
-          <a href="tel:+261386626100" style={{ color: "#94a3b8", textDecoration: "none" }}>+261 38 66 261 00</a>
-          <span>·</span>
-          <button data-cal-link="wikolabs-team/30min" data-cal-namespace="wk30min" data-cal-config='{"layout":"month_view"}' type="button" target="_blank" rel="noopener noreferrer" style={{ color: "#94a3b8", textDecoration: "none" }}>Prendre RDV</button>
-        </div>
-        <div style={{ fontSize: "0.8rem", color: "#475569" }}>© 2026 Wikolabs. Tous droits réservés.</div>
       </footer>
-    </main>
+    </div>
   );
 }
