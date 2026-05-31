@@ -15,21 +15,9 @@ services:
       GROQ_API_KEY: ${GROQ_API_KEY:-}
       GEMINI_API_KEY: ${GEMINI_API_KEY:-}
     networks:
-      - graphfraud-net
-
-  graphfraud:
-    image: ghcr.io/wikolabs/graphfraud:latest
-    container_name: graphfraud
-    restart: unless-stopped
-    ports:
-      - "3044:3000"
-    environment:
-      BACKEND_URL: "http://graphfraud-backend:8000"
-    depends_on:
-      - graphfraud-backend
-    networks:
-      - graphfraud-net
-
+  wkdemo_net:
+    name: wkdemo-net
+    external: true
 networks:
   graphfraud-net:
     name: graphfraud-net
