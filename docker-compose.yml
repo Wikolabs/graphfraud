@@ -1,10 +1,11 @@
 version: "3.9"
 
-# GraphFraud demo - production-ready POC.
+# graphfraud demo - production-ready POC.
 # 2 services orchestrated:
 #   - graphfraud (Next.js frontend on host port 3044)
 #   - graphfraud-backend (FastAPI Python, internal only on 8000)
-# Internal network so the frontend can reach the backend by service name.
+# Shared external network wkdemo-net (created once by deploy.yml) avoids
+# Docker default address-pool exhaustion across all 47 LP stacks.
 
 services:
   graphfraud-backend:
@@ -15,10 +16,22 @@ services:
       GROQ_API_KEY: ${GROQ_API_KEY:-}
       GEMINI_API_KEY: ${GEMINI_API_KEY:-}
     networks:
+      - wkdemo_net
+
+  graphfraud:
+    image: ghcr.io/wikolabs/graphfraud:latest
+    container_name: graphfraud
+    restart: unless-stopped
+    ports:
+      - "3044:3000"
+    environment:
+      BACKEND_URL: "http://graphfraud-backend:8000"
+    depends_on:
+      - graphfraud-backend
+    networks:
+      - wkdemo_net
+
+networks:
   wkdemo_net:
     name: wkdemo-net
     external: true
-networks:
-  graphfraud-net:
-    name: graphfraud-net
-    driver: bridge
